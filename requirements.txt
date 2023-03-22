@@ -1,4 +1,4 @@
-Flask==1.1
+Flask==2.1.1
 Flask-Bootstrap==3.2.0.2
 Flask-Login==0.2.11
 Flask-Migrate==2.7.0
@@ -7,15 +7,15 @@ Flask-SQLAlchemy==2.5.1
 Flask-Script==2.0.5
 Flask-WTF==1.0.0
 Flask-Whooshee==0.8.2
-Jinja2==2.10.1
+Jinja2==3.0
 Mako==1.0.0
-MarkupSafe==0.23
+MarkupSafe==2.0.1
 SQLAlchemy==1.4
 WTForms==2.0.1
 Werkzeug==2.0.3
 Whoosh==2.7.0
 alembic==0.7
 blinker==1.4
-itsdangerous==0.24
+itsdangerous==2.0
 psycopg2==2.8.5
-uWSGI==2.0.16
+uWSGI==2.0.21
