@@ -1,5 +1,5 @@
 from flask import jsonify, request, abort
-from flask.ext.login import current_user
+from flask_login import current_user
 from app.extensions import db
 from . import api
 from .decorators import admin_required

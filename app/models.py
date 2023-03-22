@@ -1,7 +1,9 @@
 from datetime import datetime
-from flask.ext.login import UserMixin
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from app.extensions import db, login_manager
+from app.extensions import db, login_manager, whooshee
+
+import flask_sqlalchemy
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
@@ -69,9 +71,9 @@ class Cast(db.Model):
     def to_json_picks(self):
         return [ pick.to_json for pick in self.picks ]
 
+@whooshee.register_model('artist', 'song', 'album', 'description')
 class Pick(db.Model):
     __tablename__ = 'picks'
-    __searchable__ = ['artist', 'song', 'album', 'description']
     id = db.Column(db.Integer, primary_key=True)
     dj_list_position = db.Column(db.Integer)
     played = db.Column(db.Boolean)

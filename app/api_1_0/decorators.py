@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import redirect, flash, url_for
-from flask.ext.login import current_user
+from flask_login import current_user
 
 def admin_required(f):
     @wraps(f)

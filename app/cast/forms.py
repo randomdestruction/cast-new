@@ -1,9 +1,9 @@
-from flask.ext.wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import Required, Length, EqualTo
 from datetime import datetime
 
-class PickForm(Form):
+class PickForm(FlaskForm):
 	artist = StringField('Artist', validators=[Required()])
 	album = StringField('Album', validators=[Required()])
 	song = StringField('Song', validators=[Required()])
@@ -28,7 +28,7 @@ class PickForm(Form):
 		pick.links = self.links.data
 		pick.picture_url = self.picture_url.data
 
-class CastForm(Form):
+class CastForm(FlaskForm):
 	cast_number = StringField('Cast Number', validators=[Required()])
 	time = StringField('Time', validators=[Required()])
 	date = StringField('Date', validators=[Required()])
@@ -49,11 +49,11 @@ class CastForm(Form):
 		cast.description = self.description.data
 		cast.picture_url = self.picture_url.data
 
-class SearchForm(Form):
+class SearchForm(FlaskForm):
     search = StringField('Search')
     submit = SubmitField('Submit!')
 
-class DeleteCastForm(Form):
+class DeleteCastForm(FlaskForm):
 	cast_number = PasswordField('Cast Number', [Required(), Length(1, 128), EqualTo('confirm', message='Numbers must match.')])
 	confirm = PasswordField('Repeat Number')
 	submit = SubmitField('Delete forever!')
